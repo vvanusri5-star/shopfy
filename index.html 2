@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dress Store</title>
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: Arial, sans-serif; background:#f9f9f9;}
+    header {background:#222; color:white; padding:15px; text-align:center;}
+    nav {background:#444; padding:12px; text-align:center;}
+    nav a {color:white; margin:0 15px; text-decoration:none; font-weight:bold;}
+    .hero {
+      background:url('https://images.unsplash.com/photo-1520975922071-a11225f2c7e8?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      height:350px; display:flex; justify-content:center; align-items:center;
+      color:white; font-size:2.5rem; font-weight:bold; text-shadow:2px 2px 8px rgba(0,0,0,0.6);
+    }
+    .container {display:flex; flex-wrap:wrap; justify-content:center; padding:20px;}
+    .product {
+      background:white; border-radius:10px; margin:15px; width:240px; text-align:center;
+      padding:15px; box-shadow:0 4px 8px rgba(0,0,0,0.1); transition:transform 0.3s;
+    }
+    .product:hover {transform:scale(1.05);}
+    .product img {width:100%; height:280px; object-fit:cover; border-radius:8px;}
+    .product h3 {margin:10px 0;}
+    .product p {color:#555;}
+    .product button {
+      background:#e91e63; border:none; padding:10px 15px; color:white; border-radius:5px;
+      cursor:pointer; margin-top:10px;
+    }
+    .product button:hover {background:#c2185b;}
+    .cart {
+      position:fixed; top:90px; right:20px; background:white; border:1px solid #ccc;
+      border-radius:10px; padding:15px; width:260px; box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    }
+    .cart h3 {margin-top:0;}
+    .cart ul {list-style:none; padding:0; max-height:200px; overflow-y:auto;}
+    .cart ul li {padding:5px 0; border-bottom:1px solid #eee;}
+    .cart button {width:100%; background:#28a745; border:none; padding:10px; color:white; border-radius:5px; cursor:pointer; margin-top:10px;}
+    .cart button:hover {background:#218838;}
+    .about,.contact {
+      padding:40px; text-align:center; background:#fff; margin:20px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    }
+    footer {background:#222; color:white; text-align:center; padding:15px; margin-top:20px;}
+    @media(max-width:768px){
+      .cart{position:static; margin:20px auto; width:90%;}
+      .hero{font-size:1.8rem; text-align:center; padding:20px;}
+    }
+  </style>
+</head>
+<body>
+
+  <header><h1>👗 Dress Store</h1></header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#collection">Collection</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="hero">Find Your Perfect Dress ✨</div>
+
+  <section id="collection">
+    <h2 style="text-align:center; padding:20px;">Our Dress Collection</h2>
+    <div class="container">
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1520975922071-a11225f2c7e8?auto=format&fit=crop&w=500&q=80" alt="Red Dress">
+        <h3>Red Party Dress</h3>
+        <p>₹1,299</p>
+        <button onclick="addToCart('Red Party Dress', 1299)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80" alt="Blue Dress">
+        <h3>Blue Evening Gown</h3>
+        <p>₹2,499</p>
+        <button onclick="addToCart('Blue Evening Gown', 2499)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1602810318412-0e3c94e1a2c6?auto=format&fit=crop&w=500&q=80" alt="Black Dress">
+        <h3>Black Cocktail Dress</h3>
+        <p>₹1,799</p>
+        <button onclick="addToCart('Black Cocktail Dress', 1799)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1520975922071-a11225f2c7e8?auto=format&fit=crop&w=500&q=80" alt="Pink Dress">
+        <h3>Pink Summer Dress</h3>
+        <p>₹999</p>
+        <button onclick="addToCart('Pink Summer Dress', 999)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1602326438083-4c8a98d9f01c?auto=format&fit=crop&w=500&q=80" alt="White Dress">
+        <h3>White Wedding Dress</h3>
+        <p>₹4,999</p>
+        <button onclick="addToCart('White Wedding Dress', 4999)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?auto=format&fit=crop&w=500&q=80" alt="Green Dress">
+        <h3>Green Floral Dress</h3>
+        <p>₹1,499</p>
+        <button onclick="addToCart('Green Floral Dress', 1499)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1622441815197-dfd4c3dd5d14?auto=format&fit=crop&w=500&q=80" alt="Yellow Dress">
+        <h3>Yellow Casual Dress</h3>
+        <p>₹1,199</p>
+        <button onclick="addToCart('Yellow Casual Dress', 1199)">Add to Cart</button>
+      </div>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80" alt="Purple Dress">
+        <h3>Purple Evening Dress</h3>
+        <p>₹2,199</p>
+        <button onclick="addToCart('Purple Evening Dress', 2199)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cart" id="cart">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <p><b>Total: ₹<span id="cart-total">0</span></b></p>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <p>We bring you the latest fashion trends in dresses. Our collection is designed to make you look stunning on every occasion.</p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@dressstore.in</p>
+    <p>Phone: +91 98765 43210</p>
+  </section>
+
+  <footer><p>© 2025 Dress Store | All Rights Reserved</p></footer>
+
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(item, price) {
+      cart.push({item, price});
+      total += price;
+      updateCart();
+    }
+
+    function updateCart() {
+      let cartList = document.getElementById("cart-items");
+      let totalDisplay = document.getElementById("cart-total");
+      cartList.innerHTML = "";
+      cart.forEach(c => {
+        let li = document.createElement("li");
+        li.textContent = `${c.item} - ₹${c.price}`;
+        cartList.appendChild(li);
+      });
+      totalDisplay.textContent = total;
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+      } else {
+        alert("Thank you for shopping! Your total is ₹" + total);
+        cart = [];
+        total = 0;
+        updateCart();
+      }
+    }
+  </script>
+
+</body>
+</html>
